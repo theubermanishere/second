@@ -1,0 +1,19 @@
+{
+  "name": "second",
+  "version": "1.0.0",
+  "description": "A pomodoro timer",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theubermanishere/second.git"
+  },
+  "author": "theubermanishere",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theubermanishere/second/issues"
+  },
+  "homepage": "https://github.com/theubermanishere/second#readme"
+}
