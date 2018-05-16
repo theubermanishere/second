@@ -1,4 +1,4 @@
-let long = 2;
+let long = 1;
 let short = 1;
 let count = 2;
 let flag = 0;

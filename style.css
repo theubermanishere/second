@@ -4,7 +4,7 @@ body {
 }
 
 #watch {
-	height: 400px;
+	height: 350px;
 	width: auto;
 	margin: 0;
 	display: flex;
@@ -12,9 +12,16 @@ body {
 	justify-content: center;
 }
 
+#control {
+	width: auto;
+	margin: 0;
+	text-align: center;
+}
+
 #bottom {
 	width: auto;
 	margin: 0;
+	padding-top: 5%;
 	text-align: center;
 }
 
@@ -35,4 +42,14 @@ button {
 #display {
     font-family: 'IBM Plex Mono', monospace;
 	font-size: 70px;
+}
+
+.fa-check {
+	font-size: 30px;
+	color: #5fd354;
+}
+
+.mark {
+	height: 30px;
+	fill: #5fd354;
 }
