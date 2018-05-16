@@ -1,0 +1,30 @@
+body {
+	background-color: #2F343F;
+	color: white;
+}
+
+#watch {
+	height: 400px;
+	width: auto;
+	margin: 0;
+}
+
+#bottom {
+	width: auto;
+	margin: 0;
+	text-align: center;
+}
+
+button {
+	background-color: #2F343F;
+	border-color: white;
+	border-radius: 100%;
+	font-size: 34px;
+	padding: 20px;
+	color: white;
+}
+
+.fa-play-circle {
+    -moz-transition: all 1s ease;
+	transition: all 1s ease;
+}
