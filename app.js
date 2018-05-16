@@ -1,6 +1,7 @@
-let long = 2000;
+let long = 2;
 let short = 1;
 let count = 4;
+var flag = 0;
 
 let display = document.getElementById("display");
 let span = document.getElementById("eventHolder");
@@ -16,17 +17,22 @@ let timer = {
 timer.runCounter = function (time) {
 	timer.time = time
 	setTimeout( function() {
-		var face = watchFace(time)
-		display.innerHTML = pad(face.a,2).toString() + ":" + pad(face.b,2).toString()
-		console.log(time);
+		updateFace(time)
 		timer.time = time - 1
-		if ( timer.time > -1 ) {
-			timer.runCounter(timer.time);
+		if (flag == 1) {
+			flag = 0;
+			updateFace(0);
+			return 0;
 		}
 		else {
-			span.dispatchEvent(event);
+			if ( timer.time > -1 ) {
+				timer.runCounter(timer.time);
+			}
+			else {
+				span.dispatchEvent(event);
+			}
 		}
-	}, 1000) 
+	}, 1000)
 };
 
 span.addEventListener("timeOut", function() {
@@ -55,16 +61,31 @@ function buttonPress() {
 		timer.runCounter(long);
 		timer.state = "long";
 		toggleButtonClass();
+		return 0
 	}
 	if (timer.state == "longDone") {
 		timer.runCounter(short);
 		timer.state = "short";
 		toggleButtonClass();
+		return 0
 	}
 	if (timer.state == "shortDone") {
 		timer.runCounter(long);
 		timer.state = "long";
 		toggleButtonClass();
+		return 0
+	}
+	if (timer.state == "long") {
+		flag = 1;
+		timer.state = "shortDone";
+		toggleButtonClass();
+		return 0
+	}
+	if (timer.state == "short") {
+		flag = 1;
+		timer.state = "longDone";
+		toggleButtonClass();
+		return 0
 	}
 }
 
@@ -81,21 +102,21 @@ function toggleButtonClass() {
 
 i.addEventListener("click", buttonPress);
 
-function watchFace(sec) {
+function updateFace(sec) {
 	if (sec > 3599) {
 		var a = parseInt(sec / 3600); // hours
 		var b = parseInt((sec % 3600) / 60); // mins
-		return {a,b}
+		display.innerHTML = pad(a,2).toString() + ":" + pad(b,2).toString()
 	}
 	else {
 		var a = parseInt(sec / 60) // mins
 		var b = sec % 60; // secs
-		return {a,b}
+		display.innerHTML = pad(a,2).toString() + ":" + pad(b,2).toString()
 	}
 }
 
 function pad(n, width, z) {
-  z = z || '0';
-  n = n + '';
-  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+	z = z || '0';
+	n = n + '';
+	return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }

@@ -7,6 +7,9 @@ body {
 	height: 400px;
 	width: auto;
 	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #bottom {
@@ -27,4 +30,9 @@ button {
 .fa-play-circle {
     -moz-transition: all 1s ease;
 	transition: all 1s ease;
+}
+
+#display {
+    font-family: 'IBM Plex Mono', monospace;
+	font-size: 70px;
 }
