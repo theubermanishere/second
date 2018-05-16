@@ -1,7 +1,7 @@
 let long = 2;
 let short = 1;
-let count = 4;
-var flag = 0;
+let count = 2;
+let flag = 0;
 
 let display = document.getElementById("display");
 let span = document.getElementById("eventHolder");
@@ -11,7 +11,8 @@ let event = new Event('timeOut');
 
 let timer = {
 	state: "init",
-	time: 10
+	time: 10,
+	count: count
 }
 
 timer.runCounter = function (time) {
@@ -41,6 +42,12 @@ span.addEventListener("timeOut", function() {
 		timer.state = "longDone";
 		console.log(timer.state)
 		toggleButtonClass();
+		timer.count--;
+		if (timer.count == 0) {
+			timer.count = count;
+			console.log("Completed");
+			timer.state = "init"
+		}
 	}
 	if (timer.state == "short") {
 		// State change to shortDone
